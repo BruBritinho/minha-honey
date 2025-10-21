@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convite Especial 💌</title>
+<style>
+  body {
+    background-color: #000000; /* Fundo preto */
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 2s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .ticket {
+    background-color: #BDB0D0; /* Bilhete lilás */
+    border-radius: 20px;
+    padding: 40px;
+    width: 320px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    display: none;
+    color: #000; /* Texto dentro do bilhete em preto para contraste */
+  }
+
+  .title {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .subtitle {
+    font-size: 1em;
+    margin-bottom: 20px;
+  }
+
+  .movie {
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-top: 10px;
+  }
+
+  .date {
+    margin-top: 10px;
+    font-size: 0.95em;
+  }
+
+  .button {
+    background: #000; /* Botão preto dentro do bilhete lilás */
+    color: #BDB0D0;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 25px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background: #333;
+    transform: scale(1.05);
+  }
+
+  .start-button {
+    background: #BDB0D0; /* Botão inicial lilás */
+    color: #000;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .start-button:hover {
+    background: #d0c0e0;
+    transform: scale(1.05);
+  }
+
+  .accepted-message {
+    font-size: 1.3em;
+    margin-top: 20px;
+    display: none;
+    animation: fadeIn 2s ease forwards;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 15px;
+    font-size: 0.8em;
+    color: #fff;
+  }
+
+  audio {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<audio id="bgMusic">
+  <source src="https://dl.dropboxusercontent.com/scl/fi/f2x6h2r7gwl7qhnfrcgw8/Accidentally-in-Love.mp3?rlkey=4es1xg2l7d7w0df5wz0ov2z4i&dl=0" type="audio/mpeg">
+</audio>
+
+<button class="start-button fade-in" id="openInvite">🎟️ Ver meu convite</button>
+
+<div class="ticket fade-in" id="ticket">
+  <div class="title">💌 Convite Especial</div>
+  <div class="subtitle">
+    Para: <b>Amor da minha vida, minha linda, minha mais mais 💖</b><br><br>
+    Um convite para uma sessão de cinema à distância. Especial halloween!!!
+  </div>
+  <div class="movie">🎬 Filme: Viva – A Vida é uma Festa 🌸</div>
+  <div class="date">📅 Dia 21/10/2025 às 22h30</div>
+  <button class="button" id="acceptBtn">Aceitar convite 💌</button>
+  <div class="accepted-message" id="acceptedMsg">💌 Convite aceito!</div>
+</div>
+
+<footer>Feito com amor por você ❤️</footer>
+
+<script>
+  const openInvite = document.getElementById('openInvite');
+  const ticket = document.getElementById('ticket');
+  const music = document.getElementById('bgMusic');
+  const acceptBtn = document.getElementById('acceptBtn');
+  const acceptedMsg = document.getElementById('acceptedMsg');
+
+  openInvite.addEventListener('click', () => {
+    openInvite.style.display = 'none';
+    ticket.style.display = 'block';
+    music.play();
+  });
+
+  acceptBtn.addEventListener('click', () => {
+    acceptedMsg.style.display = 'block';
+    // Abre WhatsApp com mensagem pronta para você
+    window.open('https://wa.me/5511973400968?text=Eu%20aceito%20o%20convite!!!', '_blank');
+  });
+</script>
+
+</body>
+</html>
